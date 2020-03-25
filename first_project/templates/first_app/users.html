@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Users</title>
+    <link rel="stylesheet" href="{% static "css/mystyle.css" %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  </head>
+  <body>
+    <h1>Users</h1>
+
+    <form method="POST">
+      {{ form.as_p }}
+      {% csrf_token %}
+      <input type="submit" class='btn btn-primary'value="Submit">
+    </form>
+
+    <div class="djangotwo">
+      {% if users_dict %}
+      <table>
+        <thead>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+        </thead>
+
+
+      {% for user in users_dict %}
+      <tr>
+        <td>{{ user.f_name }}</td>
+        <td>{{ user.l_name }}</td>
+        <td>{{ user.email }}</td>
+      </tr>
+      {% endfor %}
+      </table>
+      {% else %}
+        <p>NO USERS FOUND!</p>
+      {% endif %}
+    </div>
+
+  </body>
+</html>

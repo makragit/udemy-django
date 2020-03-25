@@ -1,0 +1,23 @@
+{% extends "first_app/base.html" %}
+
+  {% block body_block %}
+
+  <div class="container">
+    <div class="jumbotron">
+      <h1>Welcome!</h1>
+      <h2>Go to /users</h2>
+
+      {% if context_dict %}
+      <p>ja</p>
+      {% endif %}
+
+      <h1>{{ text|cut:'hello' }}</h1>
+      <h1>{{ number|add:"99" }}</h1>
+
+
+    </div>
+  </div>
+
+  {% endblock %}
+
+
